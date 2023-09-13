@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>shopping analia franco sistem</title>
+    <link rel="stylesheet" href="css/style.css">
+    <img src="imagens/Shopping_logo.png" > 
+    <p>SHOPPINGS MULTIPLAN SISTEMS</p>
+    <p>A Multiplan é uma das maiores empresas de shopping centers do Brasil. Desenvolve, administra e detém uma das melhores carteiras de shoppings do país, com 19 operações nas regiões Sudeste, Sul, Centro-Oeste e Nordeste.</p>
+
+</head>
+<body>
+
+    <p>Hora de Entrada do carro <input type="datetime-local" id="Entrou"></p>
+    <p>Hora de Saida do carro <input type="datetime-local" id="Saiu"></p>
+    <p><input type="button" onclick="Calcular()"></p>
+    <p id="resposta"></p>
+    <script>
+          function Calcular() {
+//codigo para colocar a barra para colocar os dados//
+var EntrouValue = document.getElementById("Entrou").value;
+var SaiuValue = document.getElementById("Saiu").value;
+//codigo alisa uma representação de data em string, e retorna o número de milisegundos desde 01 de Janeiro de 1970//
+var c = Date.parse(EntrouValue);
+var d = Date.parse(SaiuValue);
+
+//codigo para calcular o tempo e cobrar//
+ var diferenca = d - c;
+ var horas = diferenca/(3600000);
+ var valor = horas*15;
+
+  document.getElementById("resposta").innerHTML=
+ `O veículo ficou estacionado por ${horas} horas e terá que pagar R$${valor}!!`
+ //codigo no caso da pessoa colocar a datade entrada maior que a de saida//
+if (c>d) {
+    document.getElementById("resposta").innerHTML=
+ `o Horário de entrada deve ser menor que o horário de saída!!`
+}
+
+
+ }
+
+    </script>
+    
+    <p>Formas de pagamento:
+    Cartão de crédito, débito, dinheiro ou aplicativo Shopping Center Norte. Não aceitamos cheques. </p>
+    
+</body>
+</html>
